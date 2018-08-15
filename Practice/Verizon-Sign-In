@@ -1,0 +1,12 @@
+from selenium import webdriver
+
+driver = webdriver.Firefox(executable_path = 'C:\Users\Home\Downloads\geckodriver-v0.21.0-win64\geckodriver.exe')   #Sample Path of geckodriver
+driver.get("https://www.verizonwireless.com/")
+try:
+    element=driver.find_element_by_xpath("//li[@class='account-container ']").click()
+    driver.implicitly_wait(2)
+    element=driver.find_element_by_xpath("//li[@class='account-container dropdown-active']/ul/li/a[contains(text(),'My Account')]").click()
+    print('Success!')
+    
+except:
+    print('Unexpected Error!')
